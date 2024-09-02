@@ -1,0 +1,50 @@
+double / float v[] = { ......}
+
+for(int = 0; i < sizeof(v)/sizeof(v[0]); i++)
+ (quando vc nao sabe o tamanha do arr)
+
+
+
+
+f(int *arr)
+f(int arr[])
+{
+	printf("", sizeok(arr)
+	(vai dar 4 bytes, apenas o tamanho do "arr" que é a msm coisa do ponteiro arr, o f de cima e de baixo é a msm coisa)
+}
+
+int main()
+{
+int array[1000);
+f(array);
+}
+
+
+
+char ch = 'A'; char ch = 65;
+char ch = '\0'; char ch = 0;
+
+
+como funciona o strlen
+
+sint.t strlen(char *s)
+{
+int i;
+for (i = 0; s[i] != ´\0´; i++)
+	;
+return i;
+}
+
+
+s1 -> nao é string
+s2 -> é uma string
+s3 -> é uma string
+s4 -> é uma string
+s5 -> nao é string
+s6 -> é uma string
+
+nao ha atribuição de string em C
+
+
+scanf("%s", nome)); vs gets(nome);
+acaba no primeiro nome	vs le o nome todo

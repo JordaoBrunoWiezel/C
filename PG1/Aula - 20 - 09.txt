@@ -1,0 +1,75 @@
+Aula - 20 - 09
+
+&& - and
+|| - or
+! - not
+
+
+> - maior 
+< - menor 
+>= - maior igual 
+<= menor igual
+== - igual 
+!= - diferente
+% resto
+
+
+-----------------
+If ( <condição> )
+      <Instrução>
+else 
+      <Instrução>
+------------------
+
+
+Exemplo: dentro fora
+Int i1, i2
+Int n
+
+If (n>=i1 && n<= i2)
+     Printf ("dentro")
+
+If (n< i1 || n>i2)
+     Printf ("fora")
+
+
+
+# include <srdbool.h>
+
+bool inside = n>=i1 && n <= i2
+
+
+
+-------------------------
+True if (inside == true)
+False 
+       If (inside)
+------------------------
+
+
+
+****OBS****
+Contrução de bloco
+
+/* isto é um comentário com múltiplas linhas
+*/ 
+
+Contrução de linhas 
+
+// comentário simples
+
+
+
+Exemplo:
+
+Int troco; // valor em cêntimos
+Int n moedas
+
+//2 Euros
+n moedas = troco/200
+If (n moedas > 0)
+    Printf ("%d moedas de 2 euros\n", n moedas);
+
+Troco = troco - n moedas * 200; // resto da divisão troco/200
+
+

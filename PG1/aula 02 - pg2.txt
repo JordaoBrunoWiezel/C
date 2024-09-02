@@ -1,0 +1,31 @@
+void troca (int *ptr_x, int *ptr_t)
+{
+int temp; 
+tmp = *ptr_x;
+*ptr_x = *ptr_y;
+*ptr_y = temp;
+}
+int a=5, b=7
+
+troca(&a,&b)
+
+
+#difine N_Alunos 26
+
+void init (int[], int size, int valor)
+{
+for(int i =0; i<size; i++)
+arr[i]=valor;
+
+OU 
+
+void int(int *arr, int size, i++)
+*(arr+i) = valor;
+
+int main()
+{
+int notas[N_Alunos];
+int(notas, N_Alunos, 10)
+
+
+arr[3] = *arr+3 

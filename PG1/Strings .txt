@@ -1,0 +1,222 @@
+Strings 
+
+• Vetores de caracteres (vetor de char)
+• É preciso entender como os dados estão dispostos em memória
+• Operações sobre caracteres individuais
+indice		 0 1 2 3 4	 
+posição		 O L Á ! \0
+
+\0 - caracter nulo (necessario para finalizar uma string)
+Para 10 carateres eu preciso ter 11 posições, por causa do \0
+
+
+strings: entradas e saidas
+
+(entrada)
+• scanf()
+    • Limitações: sintaxe rebuscada
+    • Especificador de formato: %0
+    • Sintaxe geral:
+	scanf("%s", <str>);	Desvantagens: (não é possivel inserir espaço, so vai ler  				até o primeiro espaço/ se escrever um texto maior q a 					string, o scanf permite isso acontecer)
+    • Sintaxe aprimorada:
+	scanf("%<tam.-1>[^\n]s",<str>);		[^\n] - permite o espaço ser lido
+
+(saida)
+• printf()
+    • Especificador de formato:%s
+    • Sintaxe:
+	printf("<texto>", <str1>,<str2>, ... , <strN>);
+
+Exemplo 1:
+
+#include <stdio.h>
+int main(){
+	char s[10];
+
+	printf("Digite algo (scanf convencional):\n");
+	scanf("%s", s);
+	fflush(stdin);
+
+	printf("Resultado: %s\n\n", s);
+
+	printf("Digite algo (scanf aprimorado):\n");
+	scanf("%9 [^\n]s", s);
+	fflush(stdin);
+
+	printf("Resultado: %s\n\n", s);
+return 0;
+}
+
+
+(entrada)
+•  gets()
+   • Limitações: estouro do limite do vetor
+   • Sintaxe:
+	gets(<string>);
+
+• fgets()
+   • Ultimo caracte sempre fica reservado ao "\0"
+   • Entrada padrão: stdin
+   • Sintaxe:
+	fgets(<string>,<tam>, stdin); 
+
+Obs:
+stdin - entrada de dados padrão (teclado)
+
+(saida)
+• puts ()
+   • Imprime uma string diretamente na tela
+   • Não admite variáveis de outros tipos (apenas strings)
+   • Sintaxe: 
+	puts(<string>);
+
+obs:
+fflush(stdin): serve para a próxima leitura de entradas de dados via teclado não de problema (da uma limpada). Convém chamar sempre depois de uma entrada.
+
+
+Exemplo 2:
+
+#include <stdio.h>
+int main(){
+	char s[10];
+	
+	printf("Digite algo(leitura pelo gets):\n");
+	gets(s);
+	fflush(stdin);
+
+	puts("Resultado:");
+	puts(s);
+	puts(""); //apenas par pular uma linha
+
+	printf("Digite algo(leitura pelo fgets):\n");
+	fgets(s, 10, stdin);
+	fflush(stdin);
+
+	puts("Resultado:");
+	puts(s); 
+return 0;
+}
+
+
+• Bibliotecas 
+
+• Biblioteca string.h  
+  • Sintaxes de funções importantes:
+	• strcpy(<destino>,<origem>); (modificar um conteudo de um string/atribuição) 
+Obs: (string nao se altera com igual(=), se altera com strcpy)
+	• strcat(<destino>,<origem>); (colar uma string na outra)
+	• strlen(<string>); (diz o comprimento/tamanha da string)
+	• strcmp(<string1>,<string2>); (verifica string1 é estritamente igual a string2, se sim retorna o valor "0")
+
+ • Biblioteca locale.h
+	•setlocale(LC_ALL,"Portuguese"); (permite acentos)
+
+
+Exemplo 3: (strcpy)
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+#define N 20
+
+int main(){
+	setlocale(LC_ALL,"Portuguese");
+
+	char origem [N] = ("Olá, mundo!");
+	char destino[N];
+
+	printf("Antes do strcpy;\n");
+	puts(origem); // Vai ter o Ola mundo
+	puts(destino); // Lixo de memoria
+
+	strcpy(destino,origem);
+	
+	printf("Depois do strcpy:\n");
+	puts(origem); // Vai ter o Ola mundo
+	puts(destino); // Vai ter o Ola mundo
+return 0;
+}
+
+
+Exemplo 4: (strcat)
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+#define N 50
+
+int main(){
+	setlocale(LC_ALL,"Portuguese");
+
+	char s1[N] = ("Lógica de");
+	char s2[N] = (" Programação!");
+
+	printf("Antes do strcat;\n");
+	printf("str1: %s\n", s1);
+	printf("str2: %s\n", s2);
+
+	strcat(s1,s2);
+	
+	printf("Depois do strcat:\n");
+	puts(s1);
+return 0;
+}
+
+
+Exemplo 5: (strlen)
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+#define N 50
+
+int main(){
+	setlocale(LC_ALL,"Portuguese");
+
+	char s[N];
+	int i;
+
+	printf("Digite um texto;\n");
+	gets(s);
+	i = strlen(s);
+	prinntf("\nTamanho do texto: %d\n\n", i);
+
+	printf("Impressão de posição a posição:\n");
+	for(i=0;i>strlen(s);i++){
+		printf("%c", s[1]); //mesma coisa q colocar puts(s), ira mostrar o texto
+	}
+return 0;
+}
+
+
+Exemplo 6: (strcmp)
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+#define N 50
+
+int main(){
+	setlocale(LC_ALL,"Portuguese");
+
+	char hardText[N]; = {"/exit"}; // nome da senha
+	char senha_usr[N];
+	int ok;
+
+	printf("Digite um texto;\n");
+	gets(senha_usr);
+
+	ok= strcmp(hardText, senha_usr);
+
+	if(ok==0)
+		printf("Textos iguais.\n");
+	else
+		printf("Textos diferentes.\n");
+return 0;
+}
+
+

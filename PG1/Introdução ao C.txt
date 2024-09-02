@@ -1,0 +1,277 @@
+Introdução C:
+
+1. Um programa em C é constituído por um ou mais blocos de código designados por
+funções. Tal como na matemática, as funções na linguagem C têm um nome, uma lista
+de variáveis de entrada (parâmetros) e um valor de saída (diz-se o valor de retorno da
+função). A definição do protótipo ou assinatura da função é seguida do conjunto de
+instruções entre chavetas (bloco) que contém o código da função., pois as funções em
+C podem não ter parâmetros e inclusive não gerar nenhum valor de saída. 
+
+
+2. Em qualquer programa completo em C terá de existir uma função de nome main, que
+se constitui o ponto de entrada do programa, e tem a seguinte assinatura ou protótipo:
+
+int main()
+
+Como se lê da assinatura, a função main não recebe nenhum parâmetro e tem
+de retornar um valor inteiro
+
+
+3. Todos os valores e variáveis definidos num programa pertencem a um tipo. Por
+exemplo o valor "23" pertence ao tipo int, associado a valores inteiros, que representa
+um subconjunto finito de ℤ.
+
+
+4. A linguagem C distingue letras maíusculas de minúsculas, pelo que escrever main é
+diferente de Main ou MAIN. Terá de ser sempre respeitada a capitalização dos nomes.
+
+
+TABELA DE KEYWORDS
+
+5. Apresenta-se a seguir a lista (relativamente pequena) de
+keywords (palavras-chave) na linguagem C. Nenhum nome (identificador) usado
+num programa pode ser igual a uma keyword.
+
+auto / double / int / struct
+break / else / long / switch
+case / enum / register / typedef
+char / extern / return / union
+const / float / short / unsigned
+continue / for / signed / void
+default / goto / sizeof / volatile
+do / if / static / while
+
+
+ESTRUTURA DO CÓDIGO "HELLO WORLD"
+
+6. 
+#include <stdio.h> - Esta linha é necessária porque declara funções, servindo como uma biblioteca, 
+permitindo ao compilador validar a utilização de uma função presente na biblioteca no programa.
+
+int main () - A função main, ponto de entrada de um programa em C. Depois do nome da função é 
+apresentada , entre parentêsis curvo, a sua lista de parâmetros (neste caso vazia). Antes do 
+nome o tipo do valor de retorno (neste caso é inteiro – int).
+
+printf ("Hello, World!\n"); - A chamada à função printf é usada para mostrar mensagens na consola 
+de texto. A sequência \n força uma mudança de linha.
+
+return 0 - A instrução (palavra-chave) return indica o valor retornado pela função – neste caso 
+o inteiro 0
+
+Exemplo do Código "Hello World"
+
+#include <stdio.h>
+int main ()
+{
+printf ("Hello, World!\n");
+return 0;
+}
+
+
+CONTRUÇÃO DO PROGRAMA EXECUTAVEL A PARTIR DO PROGRAMA FONTE (em linguagem C)
+
+7. Um programa escrito numa linguagem de programação tem de ser tipicamente transformado num 
+programa executável pela máquina. O responsável por essa transformação é um programa, denominado
+compilador. No nosso ambiente de trabalho, o compilador da linguagem C é o programa gcc.
+
+helloworld.c (programa fonte) --> Compilador (gcc) --> helloworld (Programa executável)
+ 
+Após criar o ficheiro (programa fonte) , que se assume chamar-se helloworld.c, o programa executável 
+helloworld é gerado com o seguinte comando:
+gcc -Wall –o helloworld helloworld.c
+
+
+VARIAVEIS NA LINGUAGEM C
+
+8. As variáveis servem para guardar e dar nome a valores que se alteram ao longo da execução de um
+programa. Em C as variáveis, antes de serem usadas, têm de ser previamente declaradas. Uma variável
+inclui o seu tipo, o seu nome e o seu valor.
+
+ Para já asumimos que as variáveis podem ter um dos seguintes tipos:
+int - para armazenar valores inteiros
+float - para armazenar valores reais
+double - para armazenar valores reais com maior precisão e alcance que no float
+char - para armazenar texto/caracter (Ex: char nome[] "")
+
+• Exemplos de declaração de variáveis na linguagem C:
+– int var1; // Variável do tipo int de nome var1. O valor da variável é indefinido.
+– int var2 = 1; // As variáveis podem ser declaradas e iniciadas em simultâneo.
+– double d1, total= 0.0, d2; // variáveis do mesmo tipo podem ser declaradas na mesma lista
+• Só após serem declaradas as variáveis podem ser referidas em instruções. Por exemplo:
+– var2 = var2 + 10; // Assumindo que var2 já foi declarada é somado 10 ao seu valor actual. 
+
+
+FUNÇÕES DE ENTRADA/SAÍDA - PRINTF
+
+9. A lógica da função printf é de que o primeiro valor que lhe for passado (1º argumento)
+define o formato da mensagem a apresentar mas não o seu conteúdo. Por exemplo:
+
+• Considere a variável inteira var1. Como usar a função printf para mostrar o seu valor?
+– printf(“%d\n”, var1);
+– Cada porcentagem do 1º argumento (chamado de string de formatação) indica um valor a
+apresentar. A letra a seguir à porcentagem indica o tipo (e o formato) do valor a apresentar. No caso
+%d significa - "aqui vai aparecer um valor inteiro em base dez". E donde vem o valor? Por cada % o
+printf tem de ser chamado com um valor (argumento) adicional, de acordo com a ordem da
+respectiva %.
+
+• É possível numa string de formatação misturar texto literal com valores a apresentar.
+– Ex: printf(“Para o número %d, o seu dobro é %\n”, n, 2*n);
+– Neste caso, se a variável n tiver o valor 10 teriamos o output (os caracteres \n no final indicam que
+deve ocorrer mudança de linha). Para o número 10, o seu dobro é 20.
+
+• A função printf pode usar entre outras as seguintes opções de formatação de
+valores a apresentar:
+
+%d valor inteiro (em base 10)
+%6d valor inteiro , ocupando pelo menos 6 caracteres ( espaços à esquerda se necessário)
+%06d valor inteiro , ocupando pelo menos 6 caracteres ( zeros à esquerda se necessário)
+%lf valor do tipo double
+%6f valor do tipo float, ocupando pelo menos 6 caracteres
+%.2f valor do tipo float, 2 dígitos a seguir ao ponto decimal
+%6.2lf valor do tipo double, ocupando no mínimo 6 caracteres incluindo 2 digitos decimais
+%c caracteres alfanuméricos (texto)
+%s Sequência de caracteres alfanuméricos (texto)
+
+
+FUNÇÕES DE ENTRADA/SAÍDA - SCANF
+
+10. É utilizado para ler valores da console para o programa. A lógica da função scanf é identica 
+ao da função printf, isto é, o primeiro argumento corresponde à string de formatação, só que agora 
+define o formato do input.
+
+• Considerem-se as variáveis inteiras dia, mes, ano. Como usar a função scanf para
+colocar como valores de variáveis três inteiros lidos da consola?
+– scanf(“%d%d%d”, &dia, &mes, &ano);
+
+– Cada porcentagem do 1º argumento (chamado de string de formatação) indica um valor a ler. A
+letra a seguir à porcentagem indica o tipo (e o formato) do valor a ler com o mesmo significado
+usado no printf ( só que neste caso não faz sentido a especificação de dimensões). Por cada % terá
+de existir na lista de argumentos o nome da variável para onde o valor vai ser lido (prefixado por &,
+por razões explicadas mais tarde).
+
+• É possível numa string de formatação misturar texto literal com valores a ler.
+– Ex: scanf(“%d-%d-%d”, &dia, &mes, &ano);
+– Neste caso o utilizador tem de introduzir os valores inteiros obrigatoriamente separados pelo
+caracter -
+
+
+COMENTARIOS NA LINGUAGEM C:
+
+11. Existem dois tipos de comentários na linguagem C:
+
+– Comentários de linha (começam com // e acabam no fim da linha corrente)
+• Ex:
+ int main() // função principal (de entrada)
+ 
+– Comentários de texto (Qualquer conjunto de caracters, inclusivE mudanças de linha entre os
+caracteres /* e */
+• Ex:
+/* A função seguinte é a função de entrada
+ de um programa em C.
+*/
+int main() 
+
+
+OPERADORES
+
+12. Os operadores (afectação, aritméticos, relacionais e lógicos) que utilizámos até ao
+momento estão organizados com a prioridade e associatividade definidas na tabela abaixo
+
+Prioridade 			Associatividade
+()				esquerda
+* / % 				esquerda
++ - 				esquerda
+< <= > >= 			esquerda
+== !=				esquerda
+&& 				esquerda
+|| 				esquerda
+!				direita
+= += -= *= /= %= 		direita
+
+• O facto do operador = ter prioridade à direita quer dizer que se pode escrever,
+dadas variáveis inteiras a, b e c:
+ a = b = c = 5; // todas as variáveis ficam com o valor 5
+
+• Operadores de atribuição aritmética: int var1 = 10
+++ - Incremento em 1 unidade (11)
+-- - Decremento em 1 unidade (10)
++= - Incremento genérico (soma o valor e incrementa na variavel) (13)
+-= - Decremento genérico (subtrai o valor e incrementa na variavel) (11)
+*= - Atribuição com multiplicação (10)
+/= - Atribuição com divisão 
+
+• Operadores relacionais
+> - maior
+>= - maior igual 
+< - menor
+<= - menor igual
+== - comparação
+!= - diferente
+
+• Operadores Logicos 
+&& - and (conjunção)
+|| - or (disjunção)
+! - not (inversão)
+
+
+FUNÇÕES COM VALORES REAIS
+
+13. As bibliotecas de funções da linguagem C incluem um conjunto de funções
+matemáticas, de que a tabela abaixo é um excerto. Para as utilizar terá de colocar
+no início do programa a linha #include <math.h>
+
+Função 				Descrição
+double sqrt(double r) 		retorna a raíz quadrada de r
+double sin(double ang) 		retorna o seno do ângulo, dado em radianos
+double cos(double ang) 		retorna o coseno do ângulo, dado em radianos
+double tan(double ang) 		retorna a tangente do ângulo, dado em radianos
+double asin(double s)		retorna o valor do ângulo em radianos (0 .. π) cujo seno é dado
+double floor(double r)		retorna o número sem parte decimal imediatamente inderior
+double round(double r)		retorna o número sem parte decimal mais próximo
+double pow(double x, double y) 	retorna x^y
+double log10(double r) 		retorna o logaritmo base 10 de r
+
+• Para gerar o programa terá de usar a opção –lm que indica ao compilador para
+usar a biblioteca de funções matemáticas. Ex:
+gcc –o mathprog mathprog.c -lm
+
+
+
+14. Exemplo de Código:
+
+#include <stdio.h>
+
+int main () {
+	
+	int celsius;
+	
+	printf ("valor em celsius: ");
+	scanf ("%d", & celsius);
+	
+	int far = celsius * (9*5) + 32;
+	
+	printf ("valor em farenheit: %d \n", far);
+	
+	return  0;
+
+}
+
+ 
+15. Exemplo do memos código para valores reais:
+
+#include <stdio.h>
+
+int main () {
+	
+	float celsius;
+	
+	printf ("valor em celsius: ");
+	scanf ("%f", & celsius);
+	
+	float far = celsius * (9.0*5.0) + 32.0;
+	
+	printf ("valor em farenheit: %.1f \n", far);
+	
+	return  0;
+
+}

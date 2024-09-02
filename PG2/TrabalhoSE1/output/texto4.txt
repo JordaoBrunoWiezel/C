@@ -1,0 +1,1 @@
+Este ficheiro contém outros símbolos que serão substituídos por espaços. Por exemplo: #, $, %, &, *, @.

@@ -1,0 +1,208 @@
+Structs (registros)
+
+• Definido novo tipo
+	typedef
+• Declarando variaveis do novo tipo
+• Acessando membros de uma variavel struct
+
+Tipos de dados compostos
+• Sintaxe de definição:
+	struct <novo_tipo>{
+		<tipo1> <campo1>;
+		<tipo2> <campo2>;
+		   .
+		<tipoN> <campoN>;
+	};
+
+Declarando variaveis do novo tipo
+• Sintaxes de declaração de variavel struct
+	struct <novo_tipo> <nome_variavel>
+
+(*)	<novo_nome> <nome_variável>;
+
+• Comando typedef: renomeia um identificador (tipo) (*)
+	typedef <tipo> <novo_nome>;
+
+Acessando os membros de uma struct
+• Antes de mais nada, é preciso haver uma variável desse tipo declarada
+• Podemos acessar os campos dessa variavel struct
+• Sintaxe:
+	<variavel>.<campo>
+• Fato: é comum misturar vetores e structs
+
+
+Exemplo 1:
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+// Create a structure called myStructure
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  setlocale(LC_ALL,"Portuguese");
+
+  // Create a structure variable of myStructure called s1
+  struct myStructure s1;
+
+  // Assign values to members of s1
+  s1.myNum = 13;
+  s1.myLetter = 'B';
+
+  // Print values
+  printf("My number: %d\n", s1.myNum);
+  printf("My letter: %c\n", s1.myLetter);
+
+  return 0;
+}
+
+
+Exemplo 2:
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+#define TAM 50
+
+struct tipo_pessoa{
+	int idade;
+	float peso;
+	char nome[TAM];
+};
+
+typedef struct tipo_pessoa tipo_pessoa;
+
+int main(){
+	setlocale(LC_ALL,"Portuguese");
+
+	//Criando e inicializando
+	tipo_pessoa pes = {0, 0.0, "Teste"};
+
+	printf("Inicio:\n");
+	printf("pes.idade: %d\n", pes.idade);
+	printf("pes.peso: %2f\n", pes .peso);
+	printf("pes.nome: %s\n", pes.nome);
+
+	//Atribuindo valores aos campos
+	pes.idade = 10;
+	pes.peso = 99.99;
+	strcpy(pes.nome, "Texto");
+
+	printf(\nAlterando os campos via código:\n);
+	printf("pes.idade: %d\n", pes.idade);
+	printf("pes.peso:  %2f\n", pes.peso);
+	printf("pes.nome: %s\n", pes.nome);
+
+	//Solicitando inserções via teclado
+	printf("\nInsira um número inteiro:\n");
+	scanf("%d", &pes.idade);
+	printf("Insira um número real:\n");
+	scanf("%f", &pes.peso);
+	fflush(stdin);
+	printf("Insira uma palavra:\n");
+	scanf("%s", &pes.nome);
+
+	printf("\nAlterando com dados do usuário:\n");
+	printf("pes.idade: %d\n", pes.idade);
+	printf("pes.peso: %.2f\n", pes.peso);
+	printf("pes.nome: %s\n", pes.nome);
+return 0;
+}	
+
+
+Exemplo 3:
+
+#include <stdlib.h> //Biblioteca para alocação de memória, controle de processos, etc
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+
+#define TAM 3
+
+struct tipo_pessoa(
+	int idade;
+	float peso;
+	char nome [50];
+);
+
+typedef struct tipo_pessoa tipo_pessoa
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+
+	tipo_pessoa lista[TAM];
+	int i;
+
+	for(i=0;i<TAM;i++){
+		printf("Insira os dados (%d):\n", i+1);
+		puts("Nome: ");
+		scanf("%50[^\n]s", &lista[i].nome);
+		fflush(Stdin);
+
+		puts("idade: ");
+		scanf("%d", &lista[i].idade);
+		fflush(stdin);
+
+		puts("Peso: ");
+		scanf("%f", &lista[i].peso);
+		fflush(stdin);
+	}
+	system("cls"); //Apagar a tela preta, tudo q foi escrito
+
+	puts("Seus dados:\n");
+	for(i=0;i<TAM;i++){
+		printf("------------ Pessoa %d ------------ \n", i+1);
+		printf("\tNome: %s\n", lista[i].nome);
+		printf("\tIdade: %d\n", lista[i].idade);
+		printf("\tPeso: %2f\n", lista[i].peso);
+	}
+	printf("------------------------\n");
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

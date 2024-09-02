@@ -1,0 +1,163 @@
+Funções e Procedimentos
+
+• Funções: resolver problemas complexos através da combinação
+de soluções menores
+• Sintaxe de definição:
+	<tipo> <nome_da_função> (<parâmetro>){
+		<bloco de comandos>
+		return <informação>;
+	}
+
+Detalhes de uma função:
+• Indentificador: mesma regra de variáveis
+• Tipo de retorno
+     • Retorno não é obrigatório em C
+• Parâmetros de entrada (dados de entrada)
+     • Nenhum, um ou vários
+
+Exemplo 1:
+
+#include <stdio.h>
+
+float maior(float num1, float num2) {
+	if(num1>num2)
+		return num1;
+	else
+		return num2;
+}
+
+int main(){
+	float x, y, m;
+
+	printf("Insira um valor:\n");
+	scanf("%f", &x);
+	printf("Insira mais um valor:\n");
+	scanf("%f", &y);
+	
+	m = maior(x,y);
+
+	printf("Maior: %.2f\n", m);
+return 0;
+} 
+
+
+• Parâmetros de função distintos
+• Sintaxe para parâmetros struct:
+	<tipo> <função> (<tipo_struct> <param>) {...}
+
+• Sintaxe para vetores/matrizes como parâmetro
+	<tipo> <função> (<tipo> <vet>[], int tam) {...}
+	<tipo> <função> (<tipo> <vet>[<tam>]) {...}
+	<tipo> <função> (<tipo> *<vet>, int tam) {...}
+	<tipo> <função> (<tipo m[][<tam2>], int tam1) {...} 
+
+
+Exemplo 2:
+
+#include <stdio.h>
+
+void imprime1(int v[], int n){
+	int i;
+	for (i=0;i<n;i++){
+		printf("%d", v[i]);
+	}
+}
+
+void imprime2(int v[5]){
+	int i;
+	for (i=0;i<5;i++){
+		printf("%d", v[i]);
+	}
+}
+
+void imprime3(int *v, int n){ // *v = v[]
+	int i;
+	for (i=0;i<n;i++){
+		printf("%d", v[i]);
+	}
+}
+
+int main(){
+	int vet[5] = {1,2,3,4,5};
+
+	puts("Primeiro imprime:");
+	imprime1(vet, 5);
+	
+	puts("\nSegundo imprime:");
+	imprime2(vet);
+
+	puts("\nTerceiro imprime:");
+	imprime3(vet, 5);
+return 0;
+}
+
+
+Exemplo 3:
+
+#include <stdio.h>
+
+void imprime(int m[][4], int n){
+	int i, j;
+	for(i=0; i<n;i++){
+		for(j=0;j<4;j++){
+			printf("%d", m[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+int main (){
+	int mat[3][4] = {{1,2,3,4}, {50, 60, 70, 80}, {91, 101, 111, 121}}	
+	imprime(mat,3);
+}
+
+
+• Mais detalhes sobre funções
+• Escopo de variáveis: local vs global
+Local: Variavel criada dentro de uma função qualquer, so pode acessar  dentro
+daquela função
+Global: Variavel criada fora de qualquer função, podendo invocar ela dentro
+de qualquer função
+• Declaração de uma função em C:
+- Deve aparecer antes do main:
+- Sintaxe de um protótipo de função:
+	<tipo> <nome_da_função> (<parâmetros>);
+
+
+Exemplo 4: (igual o exemplo 1, porém com outra estrutura)
+
+#include <stdio.h>
+
+float maior(float num1, float num2);
+
+int main(){
+	float x, y, m;
+
+	printf("Insira um valor:\n");
+	scanf("%f", &x);
+	printf("Insira mais um valor:\n");
+	scanf("%f", &y);
+	
+	m = maior(x,y);
+
+	printf("Maior: %.2f\n", m);
+return 0;
+} 
+
+float maior(float num1, float num2) {
+	if(num1>num2)
+		return num1;
+	else
+		return num2;
+}
+
+
+
+
+
+
+
+
+
+
+

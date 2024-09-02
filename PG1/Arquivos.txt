@@ -1,0 +1,8 @@
+Arquivos
+
+• main(): seu progrmaa é apenas uma função!
+• Parâmetros de um programa:
+- int argc
+- char *argv[]
+• Sintaxe correta do main ():
+	int main(int argc, char *argv[]){...}

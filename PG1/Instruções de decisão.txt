@@ -1,0 +1,176 @@
+Instruções de decisão
+
+IF E ELSE:
+
+• A instrução if pode-se apresentar da seguinte forma:
+
+If ( <condição> ){
+     ( <Instrução> );
+}
+else { 
+     ( <Instrução> );
+}
+
+A <condição> corresponde a uma expressão cuja avaliação devolve um valor lógico (ou booleano) 
+–verdadeiro ou falso. Se a avaliação da condição gerar um valor verdadeiro, a instrução 
+associada ao ramo if é executada. Caso contrário é executada a instrução associada ao ramo else, 
+caso exista.
+
+E se houver necessidade do código associado aos ramos if e/ou else corresponderem a várias
+instruções? A linguagem C resolve a questão através da chamada instrução composta , que
+consiste num conjunto indeterminado de instruções dentro de chavetas.
+
+Suponhamos que você tenha um cenário em que deseja que o código associado a um if ou else contenha várias instruções. Por exemplo, você deseja executar várias operações quando a condição if ou else for verdadeira. Você usaria blocos de código delimitados por chaves para fazer isso.
+
+• Nos if’s encadeados surge por vezes a ambiguidade de saber a que if pertence determinado else. 
+A regra da linguagem C é a de que o else pertence à instrução if imediatamente anterior. Exemplo: 
+
+int main()
+{	
+	int age;	
+	printf ("diga uma idade: \n");
+	scanf("%d", & age);
+if (age > 50) {
+	if (age > 80) {
+		printf("the oldest!\n");		
+	} else {
+		printf("fodase\n");
+}
+} else {
+	printf("still young!\n");
+}
+	return 0;
+}
+
+
+SWITCH CASE
+
+• A instrução if pode-se apresentar da seguinte forma:
+
+switch(<var>) {
+	case <v1>:
+		<bloco_de_comandos1>
+		break;
+	case <v2>:
+		<bloco_de_comados2>
+		break;
+
+	default:
+		<bloco_de_comandos_padrão>
+		break;
+
+• Por vezes é necessário escolher o código a executar entre um conjunto de alternativas. Ex:
+determinar o número de dias de um mês, não considerando anos bissextos:
+
+Usando um encadeamento de if’s:
+
+int m = ...; // contém um valor entre 1 e 12
+int dm; //dia do mes
+
+if (m == 2)
+	dm = 28;
+else if ( m == 4 || m == 6 || m == 9 || m == 11)
+	dm = 30;
+else
+ 	dm = 31;
+
+Usando a instrução switch:
+
+int m = ...; // contém um valor entre 1 e 12
+
+switch(m) {
+	case 2:
+		dm = 28; 
+		break;
+ 	case 4: case 6: case 9: case 11:
+		dm = 30; 
+		break;
+ 	default:
+		dm = 31; 
+		break;
+}
+
+
+• Por vezes, especialmente quando há um grande número de alternativas, a instrução switch
+permite escrever código mais compacto e gerar código executável mais eficiente. Com poucas
+alternativas o ganho é reduzido. Note a necessidade de terminar todos os cases do switch com a
+instrução break	;
+
+Resumindo:
+- É como se fossem vários if em sequência
+- Útil para comparar uma unica variável
+- Somente comparções de igualdade
+- Caso seja igual a 2 dos  valores: Executa o respectivo bloco e ignora todos os outros
+
+
+
+
+EXPRESSÕES BOOLEANAS
+
+• Uma expressão diz-se booleana quando o resultado da sua avaliação é um valor
+verdadeiro ou falso. Na linguagem C (até ao standard de 1999 – c99) não existe um
+tipo específico para lidar com valores booleanos. Por convenção estes são
+representados por inteiros em que o valor 0 corresponde ao falso (false) e
+qualquer valor diferente de zero corresponde ao verdadeiro (true). Os operadores
+relacionais (<, >, <= , >=, ==, != ) têm como operandos valores de tipos
+numéricos e geram valores booleanos.
+
+Os operadores lógicos ( && , ||, ! ) têm como operandos e resultado valores
+booleanos.
+
+• Ex:
+int a = ...;
+int b = ...;
+int r = 2*a > b && 2*b < a;
+if (!r) printf(“false”);
+else printf(“true”);
+
+• A partir do standard C99 a introdução do ficheiro de include
+stdbool.h permite a utilização nos programas do (pseudo)
+tipo bool e dos valores true e false.
+
+Exemplos de utilização:
+int a= …; // variável iniciada com um valor arbitrário
+bool r = a >= 1 && a <= 10; // r recebe true se a compreendido entre 1 e 10
+
+bool b1 = false; // variável b1 iniciada a false
+
+
+
+
+EXEMPLO DE CÓDIGO:
+(ordenar por forma crescente)
+
+#include <stdio.h>
+
+int main() {
+    int a, b, c, temp;
+
+    // Solicita ao usuário para digitar os três números
+    printf("Digite três números inteiros: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    // Ordena os números em ordem crescente usando troca de valores
+    if (a > b) {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+
+    if (b > c) {
+        temp = b;
+        b = c;
+        c = temp;
+    }
+
+    if (a > b) {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // Agora a, b e c estão ordenados em ordem crescente
+    printf("Os números ordenados em ordem crescente: %d %d %d\n", a, b, c);
+
+    return 0;
+}

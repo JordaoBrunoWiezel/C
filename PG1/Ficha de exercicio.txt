@@ -1,0 +1,147 @@
+Ficha de exercicio 
+
+1. FAR2CEL:
+
+#include <stdio.h>
+
+int main () {
+	
+	float farenheit;
+	
+	printf ("valor em farenheit: ");
+	scanf ("%f", & farenheit);
+	
+	float celsius = (farenheit - 32.0) / (9.0/5.0);
+	
+	printf ("valor em celsius: %.2f \n", celsius);
+	
+return  0;
+
+}
+
+
+
+2. HOUR2SEG: 
+
+#include <stdio.h>
+
+int main () {
+	
+	int hora;
+	int min;
+	int seg;
+	
+	printf ("indique as horas, minutos e segundos: (hh mm ss) ");
+	scanf ("%d%d%d", & hora, & min, & seg);
+	
+	int resp = ((hora * 3600) + (min * 60) + seg);
+	
+	printf ("O valor em segundos é: %d \n", resp);
+ 
+return 0;
+
+}
+
+
+3. SEC2HOUR 
+
+#include <stdio.h>
+
+int main () {
+	
+	int seg;
+	
+	printf ("indique os segundos: ");
+	scanf ("%d", & seg);
+	
+	int horas = (seg/3600);
+	int min = ((seg-(horas*3600))/60);
+	int segT = (seg - (horas*3600 + min*60));
+	
+	 printf("%d segundos correspondem a: %d h, %d m e %d seg", seg, horas, min, segT);
+ 
+return 0;
+
+}
+
+
+4. TVDIMS
+
+#include <stdio.h>
+#include <math.h>
+
+int main () {
+	
+	double p;
+	printf ("digite o tamanho da diagonal em polegadas :");
+	scanf("%lf", &p);
+	
+// Converte a diagonal de polegadas (p) para centímetros (h) (1 polegada = 2.54 cm)
+
+	double h = (p*2.54);
+		
+// h² = (16*x)² + (9*x)² <=> h² = 337x² <=> x = sqrt(h²/337)
+
+	double x = sqrt(h * h / 337);
+	
+	double a = 9*x;
+	double b= 16*x;
+
+	printf ("Altura do ecrã: %.1f cm \n", a);
+	printf ("Comprimento do ecã: %.1f cm\n", b);
+		
+		
+return 0;
+
+}
+
+
+5. MIDNUMBERS
+
+#include <stdio.h>
+
+int main() {
+    int sum = 0;
+    int lower, greater;
+    int n_numbers = 0;
+
+    int n;
+    int erroMostrado = 0;
+
+    printf("Digite exatamente 4 números:\n");
+
+    while (n_numbers < 4) {
+        if (scanf("%d", &n) != 1) {
+            if (erroMostrado == 0) {
+                printf("Entrada inválida. Por favor, insira um número válido.\n");
+                erroMostrado = 1;  // Define a flag de erro mostrado
+            }
+            scanf("%*s"); // Descarta o caractere inválido
+        } else {
+            if (n_numbers == 0) {
+                greater = n;
+                lower = n;
+            } else {
+                if (n > greater) {
+                    greater = n;
+                }
+                if (n < lower) {
+                    lower = n;
+                }
+            }
+
+            sum += n;
+            n_numbers++;
+            erroMostrado = 0;  // Redefine a flag de erro mostrado
+        }
+    }
+
+    // Calcular a média dos dois valores intermediários
+    double mean = (sum - lower - greater) / 2.0;
+
+    printf("Greater = %d\n", greater);
+    printf("Lower = %d\n", lower);
+    printf("Média dos dois valores intermediários: %.2lf\n", mean);
+
+    return 0;
+}

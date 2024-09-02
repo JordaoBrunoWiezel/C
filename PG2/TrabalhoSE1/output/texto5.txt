@@ -1,0 +1,1 @@
+Olá, este é um teste. Estou a usar símbolos em ASCII neste ficheiro.

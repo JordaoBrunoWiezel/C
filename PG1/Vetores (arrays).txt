@@ -1,0 +1,105 @@
+Vetores (arrays)
+
+• Estrutura de dados unidimensionais
+• Indice unico controla as posições
+• Sintaxe de declaração:
+	<tipo><nome>[<tamanho>]
+
+Vetor:
+indice	posição
+0 	  10
+1         20 
+2         30
+3	  40
+4	  50
+
+
+• Acesso a  posição:
+- Não é possivel acessar um vetor todo
+- Sintaxe:
+	<nome>[<indice>]
+
+• Lista de inicialização: preenche um vetor todo, de uma vez só
+- declara de uma vez só, todo o vetor
+	<tipo><nome>[<tam.>]={<v1>,<v2>,...,<vN>};
+
+Exemplo 1:
+
+#include <stdio.h>
+int main ()
+	int v[5]
+	float m
+
+	v[0] = 50;
+	v[1] = 40;
+	v[2] = 30;
+	v[3] = 20;
+	v[4] = 10;
+
+	m = (v[0]+v[1]+v[2]+v[3]+v[4])/5;
+	printf:("resultado:%f\n", m);
+return 0;
+}
+
+Exemplo 2:
+
+#include <stdio.h>
+int main ()
+	int v[5] = {10, 20, 30, 40, 50} (lista de incialização)
+	int i
+	float s=0
+
+	for(i=0,i<5,i++){
+	s += v[i];
+	}
+	printf:("resultado:%f\n", s/5);
+return 0;
+}
+
+	
+• Cuidado, pois a linguagem C é "permissiva" com relação aos índices de um vetor.
+		
+Exemplo 3:
+
+#include <stdio.h>
+int main ()
+	int v[5] 
+	int i
+	
+	for(i=0,i<5,i++){			(se mudarmos esse i para 8, vai estrapolar 
+	printf("Insira um dado:\n")		o vetor, invvadindo memoria, mesmo sendo
+	scanf("%d", &v[1])			aceito na execução=
+	}
+
+	printf:("dados inseridos\n");
+	for(i=0,i<5,i++){
+	printf("%d", v[i]);
+	}
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

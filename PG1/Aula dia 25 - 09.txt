@@ -1,0 +1,30 @@
+Aula dia 25 - 09
+
+
+-------------------
+while (<condição>)
+	<instrução>
+-------------------
+
+
+Exemplo: tabuada
+
+#include <stdio.h>
+
+int main () {
+	
+	int n;
+	
+	printf ("escolha um numero: ");
+	scanf ("%d", &n);
+
+	int i=1;
+	
+	while (i<=10) {
+		printf ("%d x %d = %d \n", i, n, i*n);
+		i=i+1;
+}
+	
+return 0;
+
+}

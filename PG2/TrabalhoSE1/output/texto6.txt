@@ -1,0 +1,1 @@
+Aqui estão alguns símbolos acentuados: á, é, í, ó, ú, ã, õ, ç. Estes símbolos serão processados pelo programa.

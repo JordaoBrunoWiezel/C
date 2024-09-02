@@ -1,0 +1,131 @@
+ Instruções de ciclo (ou de repetição)
+
+• A instrução while pode ser apresentada da seguinte forma:
+
+while (<condição>){
+	<bloco_de_comados>
+}
+
+O comportamento da instrução é simples: enquanto a avaliação da expressão der
+verdade é executada a instrução <bloco_de_comandos>. É possível que o bloco de comandos 
+não chegue a ser executada nenhuma vez, no caso da primeira avaliação de <condição> der falso.
+
+Se houver necessidade de executar várias instruções em cada bloco do ciclo é
+usada a instrução composta, já apresentada nas instruções de decisão.
+
+Ex1: Tabuada: 
+
+#include <stdio.h>
+
+int main () {
+	
+	int n;
+	
+	printf ("escolha um numero: ");
+	scanf ("%d", &n);
+
+	int i=1;
+	
+	while (i<=10) {
+		printf ("%d x %d = %d \n", i, n, i*n);
+		i=i+1;
+}	
+return 0;
+
+}
+
+
+DO WHILE
+
+A instrução do while pode ser apresentada da seguinte forma:
+ do{
+	<bloco_de_comandos>
+}while(<condição>);
+
+O comportamento da instrução é simples: é executada o bloco de comandos até que avaliação de
+<condição> dê falso como resultado. A instrução do-while distingue-se da instrução while pelo
+facto do bloco de comandos ser executado pelo menos uma vez, o que se torna útil em certos casos.
+
+Se houver necessidade de executar várias instruções em cada bloco do ciclo é usada, como sempre, a
+instrução composta.
+
+Ex: Apresentar na consola os algarismos de um número. À esquerda apresenta-se uma solução
+(incorrecta) usando um while (o que acontece caso o número num seja zero?). A solução com do-while, à
+direita, funciona mesmo se num for zero.
+
+int num = …;						
+// assume-se que a variável num contém um número positivo
+while (num > 0) {
+ printf(“%d”, num % 10);
+ num /= 10;
+}
+
+int num = …;
+// assume-se que a variável num contém um número positivo
+do {
+ printf(“%d”, num % 10);
+ num /= 10;
+} while (num > 0)
+
+
+FOR
+
+• A instrução for pode ser apresentada da seguinte forma:
+for (<ini.>; <cond.>; <incr.>) {
+	<bloco_de_comandos>
+}
+
+Este instrução é útil em cenários que implicam a existência de uma
+variável de ciclo, devidamente iniciada e atualizada no final de cada
+ciclo. 
+Similiar ao while
+Inicialização, condição, atualização
+
+Exemplo de código:
+
+int main () {
+
+	int i;
+	for (i=1; i<=10; i++){
+		printf("%d", i);
+	}
+}
+
+
+
+BREAK E CONTINUE
+(comandos de controle de desvio)
+
+	
+• Comando break:
+- Utilizado para encerrrar por completo uma sequencia de repetição.
+
+int main () {
+
+	int i;
+	for (i=1; i<=10; i++){
+		printf("%d", i);
+
+		if(i==5){
+			break;
+		}
+	}
+}
+(A partir do momento que chegar a 5, a repetição se encerra)
+
+
+• Comando continue:	
+- Utilzado para encerrar a interação atual, passando para a próxima repetição.
+
+int main (){
+
+	int i;
+	for (i=1; i<=10; i++){
+		printf("%d", i);
+
+		if(i==5){
+			continue;
+		}
+	}
+}
+(O valor 5 não será impresso na tela, porém continua a repetição)

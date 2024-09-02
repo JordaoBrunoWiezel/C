@@ -1,0 +1,38 @@
+char -> 1 byte
+int -> 4 bytes/ 2 bytes / 8 bytes (long e short) 
+float -> a partida 4 bytes
+double -> a partida 8 bytes
+
+sizeof -> mostra a quantidade de bytes que o int ou float ou.. ocupa
+ex: sizeof(x) ou sizeof(int)
+
+O char e o int pode ser signed ou unsigned
+
+signed char ch -> o bit mais signifciativo mostra o sinal (-128/127)
+unsigned char ch 
+
+-> (0/256)
+
+nao existe valores boolenanos em C
+0 -Falso
+Qualquer coisa diferente de 0 -Verdade
+
+Isso ja existe no programa :)
+#define NULL ((void*) 0)
+Define para o endereço de memoria 0
+void* -> apontador para qualquer coisa
+
+& -> coloca o endereço na variavel
+
+printf("./.c", 7) -> Tabela ascii
+
+
+ficheiro.c -> (compilação(analisa o codigo, ve se esta tudo certo) -> ficheiro.objeto -> (linkagem) -> ficheiro.exe
+
+compilar -> cc ficheiro.c
+Compilar apenas para o objeto -> cc -c ficheiro.c
+executa -> ./ ficheiro.c 
+
+a=b=c = 55 (O igual sempre faz da direita para a esquerda, todos vao ter 55)
+
+
